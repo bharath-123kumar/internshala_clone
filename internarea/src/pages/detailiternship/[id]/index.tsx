@@ -74,22 +74,22 @@ import { toast } from "react-toastify";
 const index = () => {
   const router = useRouter();
   const { id } = router.query;
-  const [internshipData,setinternship]=useState<any>([])
-  useEffect(()=>{
-    const fetchdata=async()=>{
+  const [internshipData, setinternship] = useState<any>([])
+  useEffect(() => {
+    const fetchdata = async () => {
       try {
-        const res=await axios.get( `https://internshala-clone-y2p2.onrender.com/api/internship/${id}`)     
+        const res = await axios.get(`http://localhost:5000/api/internship/${id}`)
         setinternship(res.data)
       } catch (error) {
         console.log(error)
       }
     }
     fetchdata()
-  },[id])
+  }, [id])
   const [availability, setAvailability] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [coverLetter, setCoverLetter] = useState("");
-  const user=useSelector(selectuser)
+  const user = useSelector(selectuser)
   if (!internshipData) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -97,25 +97,25 @@ const index = () => {
       </div>
     );
   }
-  const handlesubmitapplication=async()=>{
-    if(!coverLetter.trim()){
+  const handlesubmitapplication = async () => {
+    if (!coverLetter.trim()) {
       toast.error("please write a cover letter")
       return
     }
-    if(!availability){
+    if (!availability) {
       toast.error("please select your availability")
       return
     }
     try {
-      const applicationdata={
-        category:internshipData.category,
-        company:internshipData.company,
-        coverLetter:coverLetter,
-        user:user,
-        Application:id,
+      const applicationdata = {
+        category: internshipData.category,
+        company: internshipData.company,
+        coverLetter: coverLetter,
+        user: user,
+        Application: id,
         availability
       }
-      await axios.post("https://internshala-clone-y2p2.onrender.com/api/application",applicationdata)
+      await axios.post("http://localhost:5000/api/application", applicationdata)
       toast.success("Application submit successfully")
       router.push('/internship')
     } catch (error) {

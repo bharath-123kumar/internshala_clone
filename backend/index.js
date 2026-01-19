@@ -4,7 +4,7 @@ const app = express();
 const cors = require("cors");
 const { connect } = require("./db");
 const router = require("./Routes/index");
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(bodyparser.json({ limit: "50mb" }));
@@ -23,4 +23,11 @@ app.use((req, res, next) => {
 });
 app.listen(port, () => {
   console.log(`Server is running on the port ${port}`);
+}).on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`Port ${port} is already in use.`);
+    process.exit(1);
+  } else {
+    throw err;
+  }
 });

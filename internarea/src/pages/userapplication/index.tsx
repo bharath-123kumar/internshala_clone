@@ -51,7 +51,7 @@ const getStatusColor = (status: any) => {
 const index = () => {
   const [searchTerm, setsearchTerm] = useState("");
   const [filter, setFilter] = useState("all");
-  const user=useSelector(selectuser)
+  const user = useSelector(selectuser)
   // const [user, setuser] = useState<any>({
   //   name: "Rahul",
   //   email: "xyz@gmail.com",
@@ -63,7 +63,7 @@ const index = () => {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const res = await axios.get("https://internshala-clone-y2p2.onrender.com/api/application");
+        const res = await axios.get("http://localhost:5000/api/application");
         setdata(res.data);
       } catch (error) {
         console.log(error);
@@ -72,9 +72,9 @@ const index = () => {
     fetchdata();
   }, []);
   const userapplication = data.filter(
-    (app:any) => app.user?.name === user?.name
+    (app: any) => app.user?.name === user?.name
   );
-  const filteredapplications = userapplication.filter((application:any) => {
+  const filteredapplications = userapplication.filter((application: any) => {
     const searchmatch =
       application.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
       application.category.toLowerCase().includes(searchTerm.toLowerCase());
@@ -112,41 +112,37 @@ const index = () => {
               <div className="flex gap-2">
                 <button
                   onClick={() => setFilter("all")}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium ${
-                    filter === "all"
+                  className={`px-4 py-2 rounded-lg text-sm font-medium ${filter === "all"
                       ? "bg-blue-100 text-blue-800"
                       : "bg-gray-100 text-gray-800"
-                  }`}
+                    }`}
                 >
                   All
                 </button>
                 <button
                   onClick={() => setFilter("pending")}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium ${
-                    filter === "pending"
+                  className={`px-4 py-2 rounded-lg text-sm font-medium ${filter === "pending"
                       ? "bg-yellow-100 text-yellow-800"
                       : "bg-gray-100 text-gray-800"
-                  }`}
+                    }`}
                 >
                   Pending
                 </button>
                 <button
                   onClick={() => setFilter("approved")}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium ${
-                    filter === "approved"
+                  className={`px-4 py-2 rounded-lg text-sm font-medium ${filter === "approved"
                       ? "bg-green-100 text-green-800"
                       : "bg-gray-100 text-gray-800"
-                  }`}
+                    }`}
                 >
                   Approved
                 </button>
                 <button
                   onClick={() => setFilter("rejected")}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium ${
-                    filter === "rejected"
+                  className={`px-4 py-2 rounded-lg text-sm font-medium ${filter === "rejected"
                       ? "bg-red-100 text-red-800"
                       : "bg-gray-100 text-gray-800"
-                  }`}
+                    }`}
                 >
                   Rejected
                 </button>
@@ -185,7 +181,7 @@ const index = () => {
                 </tr>
               </thead>
               <tbody>
-                {filteredapplications.map((application:any) => (
+                {filteredapplications.map((application: any) => (
                   <tr key={application._id} className="hover:bg-gray-50">
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
@@ -237,7 +233,7 @@ const index = () => {
                         {application.status}
                       </span>
                     </td>
-                  
+
                   </tr>
                 ))}
               </tbody>

@@ -47,7 +47,7 @@ const index = () => {
     }
     try {
       setisloading(true);
-      const res = await axios.post("https://internshala-clone-y2p2.onrender.com/api/internship", formData);
+      const res = await axios.post("http://localhost:5000/api/internship", formData);
       toast.success("job posted successfuly");
       router.push("/adminpanel");
     } catch (error) {
@@ -297,7 +297,7 @@ const index = () => {
                 disabled={isloading}
                 className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                 {isloading ? (
+                {isloading ? (
                   <div className="flex items-center">
                     <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white mr-2"></div>
                     Posting Internship...

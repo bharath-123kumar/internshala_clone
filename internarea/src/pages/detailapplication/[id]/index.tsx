@@ -13,7 +13,7 @@ const index = () => {
       try {
         setloading(true);
         const res = await axios.get(
-          `https://internshala-clone-y2p2.onrender.com/api/application/${id}`
+          `http://localhost:5000/api/application/${id}`
         );
         console.log(res.data);
         setdata(res.data);
@@ -51,13 +51,12 @@ const index = () => {
               />
               {data.status && (
                 <div
-                  className={`absolute top-4 right-4 px-4 py-2 rounded-full ${
-                    data.status === "accepted"
+                  className={`absolute top-4 right-4 px-4 py-2 rounded-full ${data.status === "accepted"
                       ? "bg-green-100 text-green-600"
                       : data.status === "rejected"
-                      ? "bg-red-100 text-red-600"
-                      : "bg-yellow-100 text-yellow-600"
-                  }`}
+                        ? "bg-red-100 text-red-600"
+                        : "bg-yellow-100 text-yellow-600"
+                    }`}
                 >
                   <span className="font-semibold capitalize">
                     {data.status}

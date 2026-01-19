@@ -54,11 +54,11 @@ const index = () => {
     partTime: false,
     stipend: 50,
   });
-  const [internshipData,setinternship]=useState<any>([])
-  useEffect(()=>{
-    const fetchdata=async()=>{
+  const [internshipData, setinternship] = useState<any>([])
+  useEffect(() => {
+    const fetchdata = async () => {
       try {
-        const res=await axios.get( "https://internshala-clone-y2p2.onrender.com/api/internship")     
+        const res = await axios.get("http://localhost:5000/api/internship")
         setinternship(res.data)
         setfilteredInternships(res.data)
       } catch (error) {
@@ -66,9 +66,9 @@ const index = () => {
       }
     }
     fetchdata()
-  },[])
+  }, [])
   useEffect(() => {
-    const filtered = internshipData.filter((internship:any) => {
+    const filtered = internshipData.filter((internship: any) => {
       const matchesCategory = internship.category
         .toLowerCase()
         .includes(filter.category.toLowerCase());
@@ -354,7 +354,7 @@ const index = () => {
                 </div>
               </div>
             </div>
-           
+
           </div>
         </div>
       )}
