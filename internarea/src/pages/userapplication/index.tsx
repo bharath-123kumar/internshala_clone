@@ -63,7 +63,7 @@ const index = () => {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/application");
+        const res = await axios.get("${process.env.NEXT_PUBLIC_BACKEND_URL}/api/application");
         setdata(res.data);
       } catch (error) {
         console.log(error);
@@ -113,8 +113,8 @@ const index = () => {
                 <button
                   onClick={() => setFilter("all")}
                   className={`px-4 py-2 rounded-lg text-sm font-medium ${filter === "all"
-                      ? "bg-blue-100 text-blue-800"
-                      : "bg-gray-100 text-gray-800"
+                    ? "bg-blue-100 text-blue-800"
+                    : "bg-gray-100 text-gray-800"
                     }`}
                 >
                   All
@@ -122,8 +122,8 @@ const index = () => {
                 <button
                   onClick={() => setFilter("pending")}
                   className={`px-4 py-2 rounded-lg text-sm font-medium ${filter === "pending"
-                      ? "bg-yellow-100 text-yellow-800"
-                      : "bg-gray-100 text-gray-800"
+                    ? "bg-yellow-100 text-yellow-800"
+                    : "bg-gray-100 text-gray-800"
                     }`}
                 >
                   Pending
@@ -131,8 +131,8 @@ const index = () => {
                 <button
                   onClick={() => setFilter("approved")}
                   className={`px-4 py-2 rounded-lg text-sm font-medium ${filter === "approved"
-                      ? "bg-green-100 text-green-800"
-                      : "bg-gray-100 text-gray-800"
+                    ? "bg-green-100 text-green-800"
+                    : "bg-gray-100 text-gray-800"
                     }`}
                 >
                   Approved
@@ -140,8 +140,8 @@ const index = () => {
                 <button
                   onClick={() => setFilter("rejected")}
                   className={`px-4 py-2 rounded-lg text-sm font-medium ${filter === "rejected"
-                      ? "bg-red-100 text-red-800"
-                      : "bg-gray-100 text-gray-800"
+                    ? "bg-red-100 text-red-800"
+                    : "bg-gray-100 text-gray-800"
                     }`}
                 >
                   Rejected

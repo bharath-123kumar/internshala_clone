@@ -119,8 +119,8 @@ export default function SvgSlider() {
     const fetchdata = async () => {
       try {
         const [internshipres, jobres] = await Promise.all([
-          axios.get("http://localhost:5000/api/internship"),
-          axios.get("http://localhost:5000/api/job"),
+          axios.get("${process.env.NEXT_PUBLIC_BACKEND_URL}/api/internship"),
+          axios.get("${process.env.NEXT_PUBLIC_BACKEND_URL}/api/job"),
         ]);
         setinternship(internshipres.data);
         setjob(jobres.data);
@@ -253,8 +253,8 @@ export default function SvgSlider() {
               key={category}
               onClick={() => setSelectedCategory(category)}
               className={`px-4 py-2 rounded-full transition-colors ${selectedCategory === category
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                ? "bg-blue-600 text-white"
+                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
             >
               {category}
