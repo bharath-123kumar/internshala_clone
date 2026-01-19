@@ -162,7 +162,7 @@ const index = () => {
         availability,
       };
       await axios.post(
-        "${process.env.NEXT_PUBLIC_BACKEND_URL}/api/application",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/application`,
         applicationdata
       );
       toast.success("Application submit successfully");

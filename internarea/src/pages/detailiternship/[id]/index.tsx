@@ -115,7 +115,7 @@ const index = () => {
         Application: id,
         availability
       }
-      await axios.post("${process.env.NEXT_PUBLIC_BACKEND_URL}/api/application", applicationdata)
+      await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/application`, applicationdata)
       toast.success("Application submit successfully")
       router.push('/internship')
     } catch (error) {

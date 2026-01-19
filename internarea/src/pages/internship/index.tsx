@@ -58,7 +58,7 @@ const index = () => {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const res = await axios.get("${process.env.NEXT_PUBLIC_BACKEND_URL}/api/internship")
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/internship`)
         setinternship(res.data)
         setfilteredInternships(res.data)
       } catch (error) {

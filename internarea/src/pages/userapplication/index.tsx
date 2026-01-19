@@ -63,7 +63,7 @@ const index = () => {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const res = await axios.get("${process.env.NEXT_PUBLIC_BACKEND_URL}/api/application");
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/application`);
         setdata(res.data);
       } catch (error) {
         console.log(error);

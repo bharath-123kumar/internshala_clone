@@ -127,7 +127,7 @@ const index = () => {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const res = await axios.get("${process.env.NEXT_PUBLIC_BACKEND_URL}/api/job")
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/job`)
         setjob(res.data)
         setfilteredjobs(res.data)
       } catch (error) {
