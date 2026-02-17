@@ -1,0 +1,46 @@
+﻿
+> internarea@0.1.0 build
+> next build
+
+  Γû▓ Next.js 14.2.35
+  - Environments: .env.local
+
+   Linting and checking validity of types ...
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Collecting page data ...
+   Generating static pages (0/15) ...
+   Generating static pages (3/15) 
+   Generating static pages (7/15) 
+   Generating static pages (11/15) 
+ Γ£ô Generating static pages (15/15)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (pages)                              Size     First Load JS
+Γöî Γùï / (377 ms)                             31.3 kB         190 kB
+Γö£   Γöö css/126acce611cc7b99.css             3.95 kB
+Γö£   /_app                                  0 B             138 kB
+Γö£ Γùï /404                                   180 B           138 kB
+Γö£ Γùï /adminlogin (317 ms)                   1.52 kB         162 kB
+Γö£ Γùï /adminpanel                            1.84 kB         140 kB
+Γö£ ╞Æ /api/hello                             0 B             138 kB
+Γö£ Γùï /applications                          2.43 kB         161 kB
+Γö£ Γùï /detailapplication/[id]                1.67 kB         160 kB
+Γö£ Γùï /detailiternship/[id]                  2.56 kB         161 kB
+Γö£ Γùï /detailjob/[id]                        2.51 kB         161 kB
+Γö£ Γùï /internship (302 ms)                   2.27 kB         161 kB
+Γö£ Γùï /job                                   2.29 kB         161 kB
+Γö£ Γùï /postInternship                        2.6 kB          163 kB
+Γö£ Γùï /postJob                               2.59 kB         163 kB
+Γö£ Γùï /profile                               1.23 kB         139 kB
+Γöö Γùï /userapplication                       2.17 kB         161 kB
++ First Load JS shared by all              146 kB
+  Γö£ chunks/framework-64ad27b21261a9ce.js   44.8 kB
+  Γö£ chunks/main-4b423ec82b590a3f.js        34 kB
+  Γö£ chunks/pages/_app-7c44d54b6885238b.js  58 kB
+  Γöö other shared chunks (total)            9.01 kB
+
+Γùï  (Static)   prerendered as static content
+╞Æ  (Dynamic)  server-rendered on demand
+
