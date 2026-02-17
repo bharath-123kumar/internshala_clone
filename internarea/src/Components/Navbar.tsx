@@ -14,20 +14,24 @@ interface User {
 }
 const Navbar = () => {
   const user = useSelector(selectuser);
+  const [loading, setLoading] = useState(false);
+
   const handlelogin = async () => {
+    if (loading) return; // Prevent multiple clicks
+    setLoading(true);
     try {
       await signInWithPopup(auth, provider);
       toast.success("logged in successfully");
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
-      toast.error("login failed");
+      if (error.code === "auth/cancelled-popup-request") {
+        console.log("Login request was cancelled or another one is pending.");
+      } else {
+        toast.error("login failed");
+      }
+    } finally {
+      setLoading(false);
     }
-    // setuser({
-    //   name: "Rahul",
-    //   email: "xyz@gmail.com",
-    //   photo:
-    //     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=faces",
-    // });
   };
   const handlelogout = () => {
     signOut(auth);
